@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  grantsUrl: "https://grants-management-api.herokuapp.com/api"
 };
