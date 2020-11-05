@@ -1,0 +1,20 @@
+.display-card{
+    width: 500px;
+    height: 100px;
+}
+
+.confirm-buttons{
+    position: relative;
+    top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.confirm-button{
+    background-color: green;
+    width: 100px;
+}
+
+.cancel-button{
+    width: 100px;
+}

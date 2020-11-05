@@ -1,0 +1,22 @@
+.display-fields{
+    margin-left: 60px;
+    margin-top: 30px;
+    padding: 12px;
+}
+
+.update-btn{
+    text-align: center;
+}
+
+.buttons-div{
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    top: 30px;
+    left: 50px;
+}
+
+.edit-button{
+    width: 100px;
+}

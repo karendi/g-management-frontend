@@ -1,0 +1,25 @@
+<div class="login-page">
+    <mat-card class="login-card">
+        <form  [formGroup]="loginForm" class="login-form">
+            <mat-form-field class="example-full-width">
+                <mat-label>Enter your email</mat-label>
+                <input matInput formControlName="userEmail" placeholder="Ex. user@yahoo.com">
+                <mat-error *ngIf="f.userEmail.hasError('required')">
+                    Please provide your email
+                </mat-error>
+              </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Enter your password</mat-label>
+              <input matInput formControlName="userPassword" placeholder="***********" type="password">
+              <mat-error *ngIf="f.userPassword.hasError('required')">
+                Please provide your password
+            </mat-error>
+           </mat-form-field>
+           <div *ngIf="processing" class="login-spinner">
+            <mat-spinner diameter=30></mat-spinner>
+           </div>
+           <button *ngIf="!processing" class="login-button" mat-raised-button color="primary" (click)="loginUser()">LOGIN</button>
+          </form>
+    </mat-card>
+</div>

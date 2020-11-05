@@ -1,0 +1,23 @@
+table{
+    width: 90%;
+    position: relative;
+    top: 100px;
+    left: 5%;
+}
+
+.add-grant{
+    position: relative;
+    top: 90px;
+    left: 90%;
+}
+
+.add-grant-btn{
+    background-color: green;
+}
+
+.no-data{
+    position: relative;
+    top: 150px;
+    text-align: center;
+    color:red;
+}

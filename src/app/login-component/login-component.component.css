@@ -1,0 +1,25 @@
+.login-card{
+    position: relative;
+    top: 150px;
+    width: 300px;
+    left: 37%;
+    height: 300px;
+    background-color: gainsboro;
+}
+
+.login-form{
+    display: grid;
+    grid-gap: 50px;
+}
+
+.login-button{
+    width: 50%;
+    position: relative;
+    left: 20%;
+    background-color: green;
+}
+
+.login-spinner{
+    display: grid;
+    place-content: center;
+}

@@ -1,0 +1,19 @@
+<div>
+    <span class="title">
+         <b>{{data.title}}</b>
+    </span>
+    <div>
+        <mat-form-field class="display-fields" *ngFor="let item of data.inputFields" style="margin-left: 10px;">
+            <mat-label>{{item.name}}</mat-label>
+            <input matInput class="{{item.className}}" [(ngModel)]="item.value" [disabled]="item.readOnly"/>
+        </mat-form-field><br>
+        <div *ngIf="editData" class="buttons-div">
+            <button class="edit-button" type="submit" mat-raised-button color="primary" (click)="submit(data.inputFields)">Submit</button>
+            <button class="edit-button" type="submit" mat-raised-button  mat-dialog-close color="warn" >Cancel</button> 
+        </div>
+        <div *ngIf="!editData" class="buttons-div">
+            <button class="edit-button" type="submit" mat-raised-button color="primary" (click)="showEditButtons()">EDIT DATA</button>
+            <button class="edit-button" type="submit" mat-raised-button  mat-dialog-close color="warn" >CANCEL</button> 
+        </div>
+    </div>
+</div>

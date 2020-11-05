@@ -1,0 +1,32 @@
+<div>
+    <span class="title">
+          {{data.title}}
+    </span>
+    <form [formGroup]="grantForm">
+        <mat-form-field class="input-fields" *ngFor="let item of data.inputFields" style="margin-left: 10px;">
+            <mat-label>{{item.name}}</mat-label>
+            <input matInput value="{{item.value}}"  formControlName="{{item.form}}"/>
+        </mat-form-field><br>
+        <mat-form-field class="example-full-width">
+            <mat-label>Description</mat-label>
+            <textarea matInput placeholder="Grant description" formControlName="description"></textarea>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Grant Status</mat-label>
+            <select matNativeControl required formControlName="grantStatus">
+              <option value="inConsideration">In Consideration</option>
+              <option value="development">Development</option>
+              <option value="submitted">Submitted</option>
+              <option value="didNotSubmit">Did Not Submit</option>
+              <option value="implementation">Implementation</option>
+              <option value="notAwarded">Not Awarded</option>
+              <option value="closeOut">Close Out</option>
+              <option value="closed">Closed</option>
+            </select>
+          </mat-form-field>
+        <div class="buttons-div" >
+            <button class="form-button" type="submit" mat-raised-button mat-dialog-close [disabled]="!grantForm.valid" color="primary" (click)="submit()">Submit</button>
+            <button class="form-button" type="submit" mat-raised-button  mat-dialog-close color="warn" >Cancel</button> 
+        </div>
+    </form>
+</div>
