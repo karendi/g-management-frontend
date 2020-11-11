@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -14,6 +14,9 @@ import { GrantService } from '../services/grant-service.service';
   styleUrls: ['./home-component.component.css']
 })
 export class HomeComponent implements OnInit {
+
+  userName: string = "";
+
   processing: boolean = true;
 
   loadingError: string = "";
@@ -33,6 +36,9 @@ export class HomeComponent implements OnInit {
   constructor(private dialog: MatDialog, private grantService: GrantService) { }
 
   ngOnInit(): void {
+
+    this.userName = localStorage.getItem('userName');
+
     this.getGrants();
   }
 

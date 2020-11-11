@@ -1,11 +1,11 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark">
     <div class="navbar-nav">
-      <div class="header"><b>Grant Management</b></div>
+      <div class="header"><b>GRANT MANAGEMENT</b></div>
       <div class="person-icon" (click) = "logout()">
         <button mat-fab color="primary" aria-label="Logout button">
           <mat-icon >perm_identity</mat-icon>
         </button>
-        <div *ngIf="!loggedOut">{{userName}}</div>
+        <div *ngIf="!loggedOut">{{showName.toUpperCase()}}</div>
       </div>
       <div *ngIf="showLogout" class="logout-div">
         <button  (click)="logOutUser()" mat-raised-button color="primary">LOGOUT</button>

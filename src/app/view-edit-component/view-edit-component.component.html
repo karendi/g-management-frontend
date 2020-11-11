@@ -5,7 +5,7 @@
     <div>
         <mat-form-field class="display-fields" *ngFor="let item of data.inputFields" style="margin-left: 10px;">
             <mat-label>{{item.name}}</mat-label>
-            <input matInput class="{{item.className}}" [(ngModel)]="item.value" [disabled]="item.readOnly"/>
+            <input matInput #linkRef class="{{item.className}}" [(ngModel)]="item.value" [disabled]="item.readOnly" />
         </mat-form-field><br>
         <div *ngIf="editData" class="buttons-div">
             <button class="edit-button" type="submit" mat-raised-button color="primary" (click)="submit(data.inputFields)">Submit</button>

@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, ElementRef } from '@angular/core';
+import { Component, Inject, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 
@@ -18,7 +18,10 @@ interface DialogData {
 export class ViewEditComponent implements OnInit {
   editData: boolean =  false;
 
+  @ViewChild("linkRef") nameField: ElementRef;
+
   constructor(public dialogRef: MatDialogRef<ViewEditComponent>,
+
     @Inject(MAT_DIALOG_DATA) public data: DialogData, 
     private toastr: ToastrService, private el: ElementRef, private grantService: GrantService) { }
 
@@ -80,13 +83,15 @@ export class ViewEditComponent implements OnInit {
 
   // enable editing
   showEditButtons(){
+    console.log("I am here..");
 
     // show the submit and cancel buttons
     this.editData = true;
 
     this.toggleReadOnly();
 
-    this.el.nativeElement.querySelector('.name').focus();
+    this.nameField.nativeElement.focus();
+
   }
 
   toggleReadOnly(){

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { AuthService } from '../services/auth-service.service';
 import { ToastrService } from 'ngx-toastr';
@@ -11,7 +11,12 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  currentUserName: String = "";
+
+  @Output() showName = new EventEmitter<String>();
+
   loginForm: FormGroup;
+
   processing: boolean = false;
 
   constructor(private formBuilder: FormBuilder, private router: Router,
@@ -26,6 +31,7 @@ export class LoginComponent implements OnInit {
   }
 
   get f() { return this.loginForm.controls; }
+
 
   loginUser(){
     let email: String = this.f.userEmail.value.toLowerCase();
@@ -49,6 +55,8 @@ export class LoginComponent implements OnInit {
         // set the token and user name
         localStorage.setItem('token', response.token);
         localStorage.setItem('userName', response.userName);
+
+        this.currentUserName = response.userName;
 
         // we should redirect to home
         this.router.navigate(['/home']);

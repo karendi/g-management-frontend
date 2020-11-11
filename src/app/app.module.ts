@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -28,8 +28,7 @@ import { FormComponent } from './form-component/form-component.component';
 import { ViewEditComponent } from './view-edit-component/view-edit-component.component';
 import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
 
-import { AuthGuardService } from './services/auth-guard.service'
-
+import { AuthGuardService } from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -65,6 +64,10 @@ import { AuthGuardService } from './services/auth-guard.service'
     {provide: JWT_OPTIONS, useValue: JWT_OPTIONS},
     JwtHelperService
    ],
+  
+  schemas: [
+    NO_ERRORS_SCHEMA
+  ],
 
   bootstrap: [AppComponent]
 })

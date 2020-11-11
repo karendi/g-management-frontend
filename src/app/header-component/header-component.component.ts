@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth-service.service'
 
@@ -9,15 +9,18 @@ import { AuthService } from '../services/auth-service.service'
 })
 export class HeaderComponent implements OnInit {
 
+  @Input() showName : string;
+
   userName: String = "";
+
   showLogout: boolean = false;
+
   loggedOut: boolean = false;
 
   constructor(private router: Router, private authService: AuthService) {
-   }
+  }
 
   ngOnInit(): void {
-    this.userName = this.authService.returnUserName();
   }
 
   logout(){
